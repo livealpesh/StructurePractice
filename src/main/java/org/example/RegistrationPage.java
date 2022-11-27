@@ -57,7 +57,7 @@ public class RegistrationPage extends Utils {
         //inputting firstname
 //        it is hard core code writting so now we called test data from TestData.Properties file as a first name
 
-        typeText(_firstName,LoadPop.getProperty("FirstName"));
+        typeText(_firstName, LoadProp.getProperty("FirstName"));
 
 
         //inputting last name

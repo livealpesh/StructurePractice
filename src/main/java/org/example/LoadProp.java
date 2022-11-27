@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class LoadPop {
+public class LoadProp {
 
     static Properties prop;
     static String propertiesFileLocation = "src/test/java/TestConfig/";
