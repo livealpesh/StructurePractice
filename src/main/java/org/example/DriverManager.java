@@ -9,15 +9,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 //importing org.openqa.selenium.chrome.ChromeDriver package
-public class DriverManager extends Utils
-{
+public class DriverManager extends Utils {
     String browserName = LoadPop.getProperty("browser");
 
-
     //To open browser
-    public void openBrowser()
-    {
-        if (browserName.equalsIgnoreCase("chorme"))
+    public void openBrowser() {
+        if (browserName.equalsIgnoreCase("Chrome"))
         {
 //      set driver path for Chrome browser
             System.setProperty("webdriver.chrome.driver", "src/test/java/Driver/chromedriver.exe");
@@ -30,18 +27,14 @@ public class DriverManager extends Utils
 //      opening ms edge browser
             driver = new EdgeDriver();
 
-        }
-//        else if (browserName.equalsIgnoreCase("firefox"))
-//        {
-////      set driver path firefox browser
-//            System.setProperty("webdriver.gecko.driver", "src/test/java/Driver/geckodriver.exe");
-////      opening firefox browser
-//            driver = new FirefoxDriver();
+        } else if (browserName.equalsIgnoreCase("firefox")) {
+//      set driver path firefox browser
+            System.setProperty("webdriver.gecko.driver", "src/test/java/Driver/geckodriver.exe");
+//      opening firefox browser
+            driver = new FirefoxDriver();
 
-//        }
-        else
-        {
-            System.out.println("Your browser name is wrong or missing:"+browserName);
+        } else {
+            System.out.println("Your browser name is wrong or missing:" + browserName);
         }
 
 
@@ -50,7 +43,7 @@ public class DriverManager extends Utils
 //       this is hardcore for opening a home page we can use it
 //       driver.get("https://demo.nopcommerce.com/");
 //       now we opening home page by load Property class
-//       LoadPop is static  so this  class so we called directly for opning hompage
+//       LoadPop is static  so this  class so we called directly for opening homepage
 //       url is from TestData.Properties filr
 //       every test data now write down in  TestData.Properties file
 
@@ -59,7 +52,6 @@ public class DriverManager extends Utils
         driver.manage().window().maximize();
 //       waiting for the loading the web page
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
 
 
     }
