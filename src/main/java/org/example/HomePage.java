@@ -30,4 +30,9 @@ public class HomePage extends Utils {
         driver.findElement(By.linkText("Electronics")).click();
     }
 
+// method create for clickOnCategoryPage for BDD category feature file to click various category into the home page
+    public void clickOnCategoryPage(String category){
+        clickOnElement(By.linkText(category));
+    }
+
 }

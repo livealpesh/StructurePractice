@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 //Importing org.openqa.selenium.support.ui.WebDriverWait package
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 //Importing java.text.SimpleDateFormat package
 import java.text.SimpleDateFormat;
 //Importing java.time.Duration package
@@ -81,6 +82,10 @@ public class Utils extends BasePage{
         Select selectMonth = new Select(driver.findElement(by));
         // To select day using selectByVisibleText function
         selectMonth.selectByVisibleText(visibleText);
+    }
+//    assert apply for feature file in bdd category feature file for verify we are in category link
+    public static void assertCurrentURL(String categoryName){
+        Assert.assertTrue(driver.getCurrentUrl().contains(categoryName));
     }
 
 
