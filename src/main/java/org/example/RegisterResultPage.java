@@ -29,4 +29,14 @@ public class RegisterResultPage extends Utils {
             Assert.assertEquals(registerResulMessage , expectedRegistrationText);
 
         }
+//    //calling method to navigate to register page its one of the type to write method milli thakar style batch mate
+//    private By _clickOnContinueButton=By.xpath("//a[@class=\"button-1 register-continue-button\"]");
+//    public void verifyUserIsRegisteredSuccsessfullyPage() {
+//        //land on user registered successfully page
+//        waitForUrlTobe("https://demo.nopcommerce.com/registerresult/1?returnUrl=/", 20);
+//        //printing true result by verifying with assert
+//        Assert.assertEquals(getTextFromElement(By.className("result")),"Your registration completed","Your registration is not completed");
+//        //click on continue button to go on homepage
+//        clickOnElement(_clickOnContinueButton);
+//    }
 }

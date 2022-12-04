@@ -61,28 +61,28 @@ public class RegistrationPage extends Utils {
 
 
         //inputting last name
-        typeText(_lastName,"Panchal");
+        typeText(_lastName, LoadProp.getProperty("LastName"));
 
 
         //selecting day of the date of birth
-      selectFromDropByIndex(_day,5);
+      selectFromDropByIndex(_day,1);
 
 
         //selecting month of the date of birth
-       selectFromDropdownByValue( _month,"3");
+       selectFromDropdownByValue( _month,"2");
 
 
         //selecting year of the date of birth
 
-       selectFromDropByIndex(_year,9);
+       selectFromDropByIndex(_year,3);
 
 
         //inputting email address
-        typeText(_email,"alpeshpanchal"+getTimeStamp()+"@gmail.com");
+        typeText(_email,LoadProp.getProperty("email_1")+getTimeStamp()+LoadProp.getProperty("email_2"));
 
 
         //inputting company name
-        typeText(_companyName ,"A2Z Services");
+        typeText(_companyName ,LoadProp.getProperty("companyName_Name"));
 
 
         //clicking on newsletter checkbox to un tick
@@ -90,11 +90,11 @@ public class RegistrationPage extends Utils {
 
 
         //inputting password
-        typeText(_password,"Test1234");
+        typeText(_password,LoadProp.getProperty("password_New"));
 
 
         //inputting password again to confirm
-        typeText(_confirmPassword,"Test1234");
+        typeText(_confirmPassword,LoadProp.getProperty("confirmPassword_Confirm"));
 
 
         //clicking on register button

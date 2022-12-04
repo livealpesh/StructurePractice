@@ -1,5 +1,6 @@
 package org.example;
 //Importing org.testng.annotations.AfterMethod package
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 //Importing org.testng.annotations.BeforeMethod package
@@ -29,11 +30,12 @@ public class BaseTest extends Utils {
 
     @AfterMethod
 //AfterMethod Annotation will execute this method after executing any other method
-  public void tearDown()
-  {
+  public void tearDown(ITestResult result)
+  { if (!result.isSuccess()) {
+      captureAScreenShot(result.getName());
+  }
       //closeBrowser method is called with object
       driverManager.closeBrowser();
   }
-
 
 }

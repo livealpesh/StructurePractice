@@ -1,6 +1,9 @@
 package org.example;
 //Importing org.openqa.selenium.By package
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 //Importing org.openqa.selenium.support.ui.ExpectedConditions package
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,6 +13,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 //Importing java.text.SimpleDateFormat package
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 //Importing java.time.Duration package
 import java.time.Duration;
@@ -23,7 +28,6 @@ public class Utils extends BasePage{
         driver.findElement(by).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-
 
     //Reusable method typeText() for entering the text in string format
     public static void typeText(By by, String text) {
@@ -86,6 +90,18 @@ public class Utils extends BasePage{
 //    assert apply for feature file in bdd category feature file for verify we are in category link
     public static void assertCurrentURL(String categoryName){
         Assert.assertTrue(driver.getCurrentUrl().contains(categoryName));
+    }
+
+    //creating method to take a screen shoot by getting name of the class and the time
+    public static void captureAScreenShot(String screenShootName){
+        TakesScreenshot screenShoot =((TakesScreenshot)driver);
+        File SourceFile =screenShoot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File("src/ScreenShoot/"+screenShootName+getTimeStamp()+".jpg");
+        try {
+            FileUtils.copyFile(SourceFile,DestFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

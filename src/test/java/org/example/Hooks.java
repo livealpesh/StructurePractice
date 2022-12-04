@@ -33,7 +33,7 @@ public class Hooks extends  BasePage {
             System.out.println("Your scenario is paas so it will not take a screenshot because you are using scenario.isfailed fot taking screen shot ");
         }
 
-        driverManager.closeBrowser();
+//        driverManager.closeBrowser();
    }
 
 
