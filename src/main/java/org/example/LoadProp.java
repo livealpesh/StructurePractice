@@ -7,6 +7,9 @@ import java.util.Properties;
 
 public class LoadProp {
 
+//    this class is created for access TestData.properties file in Test config pekage-----------------------------------
+
+
     static Properties prop;
     static String propertiesFileLocation = "src/test/java/TestConfig/";
     static String propertiesFileName = "TestData.properties";
@@ -27,7 +30,7 @@ public class LoadProp {
         return prop.getProperty(key);
 
     }
-//its just for the checking the all provided data is working fine
+//its just for the checking the all provided data is working fine not necessary tyo get message print our console-------
     @Test
     public void readKeys() {
         System.out.println(getProperty("url"));

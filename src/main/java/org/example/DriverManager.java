@@ -16,6 +16,8 @@ import java.util.HashMap;
 //importing org.openqa.selenium.chrome.ChromeDriver package
 public class DriverManager extends Utils {
 
+// =========================   write down code for BROWSERSTACK to automation run into the cloud========================
+
     public static final String USERNAME = LoadProp.getProperty("BROWSERSTACK_USERNAME");
     public static final String AUTOMATE_KEY = LoadProp.getProperty("BROWSERSTACK_ACCESS_KEY");
     public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
@@ -24,19 +26,23 @@ public class DriverManager extends Utils {
 
     boolean runIncloud = Boolean.parseBoolean(LoadProp.getProperty("cloud"));
 
-//    if we are using (System.getProperty("cloud")) we need to go right corner in Testsuit.RegisterNewUser and click /select edit config/choose vm option /write a -Dcloue=true
+//    if we are using (System.getProperty("cloud")) we need to go right corner in Testsuit.RegisterNewUser
+//    and click /select edit config/choose vm option /write a -Dcloue=true
 //    boolean runIncloud = Boolean.parseBoolean(System.getProperty("cloud"));
+
     MutableCapabilities capabilities = new MutableCapabilities();
 
 
     //To open browser
     public void openBrowser() {
 
-//        run in cloud=================================================================================================
+// ===================================run in cloud====================================================================
 
         if (runIncloud) {
             System.out.println("running in the cloud");
-//            connect to cloud
+
+//=============================connect to cloud========================================================================
+
             if (browserName.equalsIgnoreCase("Edge")) {
                 ///connect with browserstack
                 capabilities.setCapability("browserName", "Edge");
@@ -47,7 +53,8 @@ public class DriverManager extends Utils {
                 browserstackOptions.put("local", "false");
                 browserstackOptions.put("seleniumVersion", "4.1.0");
                 capabilities.setCapability("bstack:options", browserstackOptions);
-                //this line code responsible for open
+
+// this line code responsible for open
 //                try {
 //                    driver = new RemoteWebDriver(new URL(URL), capabilities);
 //                } catch (MalformedURLException e) {
@@ -64,7 +71,8 @@ public class DriverManager extends Utils {
                 browserstackOptions.put("local", "false");
                 browserstackOptions.put("seleniumVersion", "4.1.0");
                 capabilities.setCapability("bstack:options", browserstackOptions);
-//              this line code responsible for open
+
+//this line code responsible for open
 //                try {
 //                    driver = new RemoteWebDriver(new URL(URL), capabilities);
 //                } catch (MalformedURLException e) {
@@ -80,7 +88,9 @@ public class DriverManager extends Utils {
                 browserstackOptions.put("local", "false");
                 browserstackOptions.put("seleniumVersion", "3.14.0");
                 capabilities.setCapability("bstack:options", browserstackOptions);
-                //              this line code responsible for open
+
+//this line code responsible for open
+
 //                try {
 //                    driver = new RemoteWebDriver(new URL(URL), capabilities);
 //                } catch (MalformedURLException e) {
@@ -91,7 +101,9 @@ public class DriverManager extends Utils {
                 System.out.println("Your browser name is wrong or missing implementation:" + browserName);
             }
 
-//           make global  this line responsible for open a latest default browser open chrome if we are not providing any instruction to which browser ,version etc.
+//           make global  this line responsible for open a latest default browser open chrome if we are not providing
+//           any instruction to which browser ,version etc.
+
             try {
                 driver = new RemoteWebDriver(new URL(URL), capabilities);
             } catch (MalformedURLException e) {
@@ -141,9 +153,7 @@ public class DriverManager extends Utils {
 //       waiting for the loading the web page
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-
     }
-
 
     //To close browser
     public void closeBrowser() {
