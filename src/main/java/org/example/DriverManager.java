@@ -159,7 +159,6 @@ public class DriverManager extends Utils {
 //        Keeping the browser in full screen mode
         driver.manage().window().maximize();
 
-
     }
 
     //To close browser
